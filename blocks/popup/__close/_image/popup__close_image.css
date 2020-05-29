@@ -1,0 +1,9 @@
+.popup__close_image {
+    display: flex; 
+    align-self: flex-start; 
+    position: relative; 
+    top: -30px; 
+    right: -5px; 
+    cursor: pointer; 
+    width: 26px
+}
