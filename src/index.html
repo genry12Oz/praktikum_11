@@ -6,7 +6,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mesto</title>
   <!-- <link rel="stylesheet" href="./pages/index.css"> -->
-  <link rel="stylesheet" href="./style.css">
+  <!-- <link rel="stylesheet" href="./style.css"> -->
+  <link rel="stylesheet" href="<%=htmlWebpackPlugin.files.css %>">
 </head>
 <body>
   <div class="root">
@@ -43,7 +44,8 @@
       </div>
     </div>
   </div>
-  <script src="./main.js"></script>
+  <!-- <script src="./main.js"></script> -->
+  <script src="<%= htmlWebpackPlugin.files.js %>"></script>
   <!-- <script src="./JS/Card.js"></script>
   <script src="./JS/CardList.js"></script>
   <script src="./JS/PopUp.js"></script>
