@@ -3,6 +3,9 @@ const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WebpackMd5Hash = require('webpack-md5-hash');
+const webpack = require('webpack');
+const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin');
+const isDev = process.env.NODE_ENV === 'development';
 
 module.exports = {
   entry: { main: './src/index.js' },
@@ -22,10 +25,12 @@ module.exports = {
       },
   {
         test: /\.css$/,
-        use:  [MiniCssExtractPlugin.loader, 'css-loader']
+        use:  [(isDev ? 'style-loader' : MiniCssExtractPlugin.loader),
+                'css-loader',
+                'postcss-loader']
        },
        {
-        test: /\.(png|woff|woff2|jpg|gif|ico|svg)$/, // добавил woff и woff 2
+        test: /\.(png|jpg|gif|ico|svg)$/, // добавил woff и woff 2
         use: [
                 'file-loader?name=../dist/images/[name].[ext]', // указали папку, куда складывать изображения
                 {
@@ -33,18 +38,33 @@ module.exports = {
                         options: {}
                 },
         ]
- }
+ },
+      {
+        test: /\.(eot|ttf|woff|woff2)$/,
+        loader: 'file-loader?name=./vendor/[name].[ext]'
+}
     ]
   },
   plugins: [ 
     new MiniCssExtractPlugin({
         filename: 'index.[contenthash].css'
     }),
+    new OptimizeCssAssetsPlugin({
+      assetNameRegExp: /\.css$/g,
+      cssProcessor: require('cssnano'),
+      cssProcessorPluginOptions: {
+              preset: ['default'],
+      },
+      canPrint: true
+    }),
     new HtmlWebpackPlugin({
       inject: false,
       template: './src/index.html',
       filename: 'index.html'
     }),
-    new WebpackMd5Hash()
+    new WebpackMd5Hash(),
+    new webpack.DefinePlugin({
+      'NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    })
   ]
 };
