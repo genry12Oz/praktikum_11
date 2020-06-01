@@ -12,11 +12,11 @@
 <body>
   <div class="root">
     <header class="header root__section">
-      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+      <img src="<%=require('./images/logo.svg')%>" alt="mesto logo" class="logo">
     </header>
     <div class="profile root__section">
       <div class="user-info">
-        <div class="user-info__photo"></div>
+        <div class="user-info__photo" style="background-image: url('../src/images/avatar.jpg')"></div>
         <div class="user-info__data">
           <h1 class="user-info__name"></h1>
           <p class="user-info__job"></p>
@@ -32,7 +32,7 @@
     </div>
     <div class="popup">
       <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup__close">
+        <img src="<%=require('./images/close.svg')%>" alt="" class="popup__close">
         <h3 class="popup__title"></h3>
         <form class="popup__form" novalidate>
             <input type="text" name="name" class="popup__input popup__input_type_name" placeholder="" required>

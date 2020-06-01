@@ -30,13 +30,22 @@ module.exports = {
                 'postcss-loader']
        },
        {
-        test: /\.(png|jpg|gif|ico|svg)$/, // добавил woff и woff 2
+        test: /\.(png|jpg|gif|ico|svg)$/i,
         use: [
-                'file-loader?name=../dist/images/[name].[ext]', // указали папку, куда складывать изображения
-                {
-                        loader: 'image-webpack-loader',
-                        options: {}
-                },
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              publicPath: 'img',
+              outputPath: 'img',
+              useRelativePath: true,
+              esModule: false,
+            }
+          },
+          {
+              loader: 'image-webpack-loader',
+              options: {}
+          },
         ]
  },
       {
