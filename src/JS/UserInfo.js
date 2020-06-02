@@ -1,4 +1,4 @@
-export class UserInfo {
+export default class UserInfo {
     constructor(api) {
         this.container = document.querySelector('.popup');
         this.popUpButton = document.querySelector('.popup__button');

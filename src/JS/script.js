@@ -3,7 +3,7 @@ import {config} from './config.js';
 import PopUpImage from './PopUpImage.js';
 import Card from './Card.js';
 import CardList from './CardList.js';
-import {UserInfo} from './UserInfo.js';
+import UserInfo from './UserInfo.js';
 import PopUp from './PopUp.js';
 import FormValidator from './FormValidator';
 
