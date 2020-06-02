@@ -1,4 +1,4 @@
-class FormValidator {
+export default class FormValidator {
     constructor(userInfo, cardList, popUp) {
         this.form = document.querySelector('.popup__form');
         this.inputName = document.querySelector('.popup__input_type_name');      

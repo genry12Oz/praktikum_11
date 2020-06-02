@@ -1,4 +1,4 @@
-class UserInfo {
+export class UserInfo {
     constructor(api) {
         this.container = document.querySelector('.popup');
         this.popUpButton = document.querySelector('.popup__button');
@@ -18,7 +18,7 @@ class UserInfo {
     }
 
     updateUserInfo(nameValue, aboutValue) {
-        api.updateInfo(nameValue, aboutValue)
+        this.api.updateInfo(nameValue, aboutValue)
             .then(res => {
                 this.userName.textContent = res.name;
                 this.userAbout.textContent = res.about;

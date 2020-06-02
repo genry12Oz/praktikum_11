@@ -1,4 +1,4 @@
-const config = {
+export const config = {
     cardsUrl: 'https://praktikum.tk/cohort9/cards',
     infoUrl: 'https://praktikum.tk/cohort9/users/me',
     options: {
