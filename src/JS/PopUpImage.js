@@ -1,4 +1,4 @@
-class PopUpImage {
+export default class PopUpImage {
     constructor() {
         this.container = document.querySelector('.popup');
         this.popUpForm = document.querySelector('.popup__content');

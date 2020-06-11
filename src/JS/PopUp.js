@@ -1,4 +1,4 @@
-class PopUp {
+export default class PopUp {
     constructor(userInfo, cardList) {
         // кнопочки
         this.editButton = document.querySelector('.user-info__button_edit');
