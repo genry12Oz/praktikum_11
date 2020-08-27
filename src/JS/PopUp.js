@@ -1,11 +1,10 @@
 export default class PopUp {
     constructor(userInfo, cardList) {
-        // кнопочки
         this.editButton = document.querySelector('.user-info__button_edit');
         this.addButton = document.querySelector('.user-info__button_add');
-        // popUp container
+
         this.container = document.querySelector('.popup');
-        // форма
+
         this.popUpForm = document.querySelector('.popup__content');
         this.form = document.querySelector('.popup__form');
         this.inputName = document.querySelector('.popup__input_type_name');      
@@ -13,10 +12,10 @@ export default class PopUp {
         this.popUpTitle = document.querySelector('.popup__title');
         this.popUpButton = document.querySelector('.popup__button');
         this.closeButtonForm = document.querySelector('.popup__close');
-        // инстансы классов
+
         this.userInfo = userInfo;
         this.cardList = cardList;
-        // листенеры
+
         this.setEventListener();
     }
 
@@ -54,7 +53,6 @@ export default class PopUp {
 
         this.form.setAttribute('name', 'about');
 
-        // атрибуты проверки валидности формы
         this.inputName.setAttribute('minlength', '2');                     
         this.inputName.setAttribute('maxlength', '30');
         this.inputAbout.setAttribute('minlength', '2');                     
@@ -71,8 +69,7 @@ export default class PopUp {
         this.popUpButton.textContent = '+';
 
         this.form.setAttribute('name', 'new');
-
-        // атрибуты проверки валидности формы
+        
         this.inputName.setAttribute('minlength', '2');                     
         this.inputName.setAttribute('maxlength', '30');                    
         this.inputAbout.setAttribute('type', 'url');

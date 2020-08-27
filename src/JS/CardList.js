@@ -10,8 +10,7 @@ export default class CardList {
     addCard(name, link) {
         this.container.appendChild(this.card.create(name, link));
     }
-
-    // работа с сервером
+    
     render() {
         this.api.getCards()
             .then(res => {

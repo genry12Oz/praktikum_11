@@ -4,7 +4,6 @@ export default class FormValidator {
         this.inputName = document.querySelector('.popup__input_type_name');      
         this.inputAbout = document.querySelector('.popup__input_type_about');
 
-        // Errors
         this.nameError = document.getElementById('error-name');
         this.aboutError = document.getElementById('error-about');
 
@@ -25,10 +24,8 @@ export default class FormValidator {
     }
 
     checkInputValidity(event) {
-        // отмена дефолтного действия submit                                              
         event.preventDefault();
 
-        // за основу взял пример из лекции, задаю перменную по которой буду проверять валидность
         let isValidForm = true;
 
         const inputs = Array.from(this.form.elements);
@@ -46,10 +43,6 @@ export default class FormValidator {
         // для поля name
         let validName = () => {
             if (!this.form.elements.name.checkValidity()) {
-                	// Можно лучше: обычно названия, для примера 'Должно быть от 2 до 30 символов' 
-                    // выносят в отдельный объект. Допустим может появится задача сделать многоязычный сайт
-                    // Для примера : const words = { validationLenght: 'Должно быть от 2 до 30 символов'	} 
-                    // Далее words передаётся в функцию и используется.
                 this.nameError.textContent = 'Это обязательное поле';
                 return false;
             } else {
@@ -72,7 +65,6 @@ export default class FormValidator {
         validName();
         validAbout();
 
-        // вернет true или false
         return validName() && validAbout();
     }
 
@@ -131,13 +123,10 @@ export default class FormValidator {
     setEventListeners() {
         this.form.submit
             .addEventListener('click', event => this.checkInputValidity(event));
-
         this.form.elements.name
             .addEventListener('input', this.checkName.bind(this));
-
         this.form.elements.about
             .addEventListener('input', this.checkAbout.bind(this));
-
         this.form
             .addEventListener('input', this.setSubmitButtonState.bind(this));
     }

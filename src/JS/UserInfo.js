@@ -26,7 +26,6 @@ export default class UserInfo {
             .then(() => this.close())
     }
 
-    // работа с сервером
     getUserInfo() {
         this.api.getInfo()
             .then(res => {
@@ -35,8 +34,7 @@ export default class UserInfo {
                 this.userAvatar.style.backgroundImage = `url(${res.avatar})`;
             });
     }
-
-    // закрытие формы
+    
     close() {
         this.container.classList.remove('popup_is-opened');
         this.popUpButton.classList.remove('popup__button_edit');
