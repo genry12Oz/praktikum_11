@@ -1,4 +1,4 @@
-[Mesto](https://genry12oz.github.io/praktikum_11/)
+[Mesto](https://genry12oz.github.io/Mesto/)
 ===
 Учебный проект
 ---
